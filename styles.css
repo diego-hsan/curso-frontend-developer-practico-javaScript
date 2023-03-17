@@ -162,7 +162,7 @@
 
   /* aside (product detaile y carrito )*/
   
-  .product-detail {
+  aside {
     background-color: var(--white);
     width: 360px;
     padding: 0 24px;
