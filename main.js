@@ -160,3 +160,5 @@ function renderProduct (arr){
        cardsContainer.appendChild(productCard)
     }
 }
+
+renderProduct(productList);
