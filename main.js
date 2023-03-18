@@ -1,14 +1,17 @@
 const menuEmail = document.querySelector('.navbar-email')
 const menuIcon= document.querySelector('.menuIcon')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart')
+const productDetaileCloseIcon =document.querySelector('.product-detail-close')
 const menuDesktop = document.querySelector('.desktop-menu')
 const menuMobile = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const openProductDetailContainer = document.querySelector('#product-detail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click',toggledesktopMenu)
 menuIcon.addEventListener('click',toggleMenuMobile)
 menuCarritoIcon.addEventListener('click',toggleCarritoAside)
+productDetaileCloseIcon.addEventListener('click',closeProductDetailAside)
 
 
 function toggledesktopMenu(){
@@ -122,13 +125,23 @@ productList.push({
 }*/
 /* por recomendacion para el orden y la reutilizacion de codigo creamos una funcion que contenga el for*/
 
+function openProductDetailAside(){
+    openProductDetailContainer.classList.remove('inactive')
+}
+
+function closeProductDetailAside(){
+    openProductDetailContainer.classList.add('inactive')
+}
+
 function renderProduct (arr){
     for (product of productList){
         const productCard = document.createElement('div')
         productCard.classList.add('product-card')    
         
+        /*creacion de las imagenes */
         const productImg = document.createElement('img')
         productImg.setAttribute('src', product.image)
+        productImg.addEventListener('click',openProductDetailAside)
         
         const productInfo = document.createElement('div')
         productInfo.classList.add('product-info')    
