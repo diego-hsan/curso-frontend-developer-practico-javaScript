@@ -5,7 +5,7 @@ const productDetaileCloseIcon =document.querySelector('.product-detail-close')
 const menuDesktop = document.querySelector('.desktop-menu')
 const menuMobile = document.querySelector('.mobile-menu')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
-const openProductDetailContainer = document.querySelector('#product-detail')
+const productDetailContainer = document.querySelector('#product-detail')
 const cardsContainer = document.querySelector('.cards-container')
 
 menuEmail.addEventListener('click',toggledesktopMenu)
@@ -33,6 +33,8 @@ function toggleMenuMobile(){
         shoppingCartContainer.classList.add('inactive')
     }
 
+    closeProductDetailAside();
+
     menuMobile.classList.toggle('inactive')
 }
 
@@ -44,6 +46,13 @@ function toggleCarritoAside(){
         menuMobile.classList.add('inactive')
         menuDesktop.classList.add('inactive')
     }
+
+
+    const isProductDetailClose = productDetailContainer.classList.contains('inactive')
+
+     if(!isProductDetailClose){
+       productDetailContainer.classList.add('inactive')
+     }
 
     shoppingCartContainer.classList.toggle('inactive')
 }
@@ -126,11 +135,12 @@ productList.push({
 /* por recomendacion para el orden y la reutilizacion de codigo creamos una funcion que contenga el for*/
 
 function openProductDetailAside(){
-    openProductDetailContainer.classList.remove('inactive')
+    shoppingCartContainer.classList.add('inactive')
+    productDetailContainer.classList.remove('inactive')
 }
 
 function closeProductDetailAside(){
-    openProductDetailContainer.classList.add('inactive')
+    productDetailContainer.classList.add('inactive')
 }
 
 function renderProduct (arr){
@@ -165,12 +175,12 @@ function renderProduct (arr){
         productInfoFigure.appendChild(productImgCart)
         
         productInfo.appendChild(productInfoDiv)
-       productInfo.appendChild(productInfoFigure)
+        productInfo.appendChild(productInfoFigure)
        
-       productCard.appendChild(productImg)
-       productCard.appendChild(productInfo)
+        productCard.appendChild(productImg)
+        productCard.appendChild(productInfo)
        
-       cardsContainer.appendChild(productCard)
+        cardsContainer.appendChild(productCard)
     }
 }
 
